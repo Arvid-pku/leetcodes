@@ -1,20 +1,22 @@
 class Solution:
     def search(self, nums, target):
         left = 0
-        right = len(nums)
-        while left < right:
+        right = len(nums) - 1 # error
+        while left <= right:  # error
             middle = (left + right) // 2
+            print(left, right, middle, len(nums))
             if nums[middle] == target:
                 return middle
             elif nums[middle] < target:
-                left = middle
+                left = middle + 1 # error
             else:
-                right = middle
+                right = middle - 1
+                  
         return -1
 
 my = Solution()
 nums = [-1,0,3,5,9,12]
-target = 2
+target = 13
 print(my.search(nums, target))
 
             
